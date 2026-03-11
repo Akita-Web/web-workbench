@@ -1,0 +1,153 @@
+@charset "UTF-8";
+
+body{
+    line-height: 1.7;
+}
+
+a{
+    text-decoration: none;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+/*
+*********************************************************************************************************
+*********************************************************************************************************
+ヘッダー
+*********************************************************************************************************
+*********************************************************************************************************
+*/
+header{
+    background: #ddd;
+    position: relative;
+}
+
+.header-inner{
+    background-color: aqua;
+    display: flex;
+    justify-content: space-between;
+    max-width: 1280px;
+    width: 96%;
+    margin: 0 auto;
+}
+
+.logo{
+    background-color: bisque;
+}
+
+.hamburger-icon{
+    background-color: brown;
+    width: 46px;
+    height: 46px;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+}
+
+.hamburger-icon span{
+    background-color: cadetblue;
+    display: block;
+    width: 36px;
+    height: 2px;
+    margin: 0 auto;
+    background-color: #000;
+    border-radius: 9999px;
+}
+
+.hamburger-icon span:nth-of-type(1){
+    background-color: chartreuse;
+    transform: translateY(0) rotate(0);
+    transition: transform .4s;
+}
+
+.hamburger-icon.is-open span:nth-of-type(1){
+    background-color: chartreuse;
+    transform: translateY(11px) rotate(225deg);
+}
+
+.hamburger-icon span:nth-of-type(2){
+    background-color: chocolate;
+    opacity: 1;
+    transition: opacity .4s;
+}
+
+.hamburger-icon.is-open span:nth-of-type(2){
+    background-color: chocolate;
+    opacity: 0;
+}
+
+.hamburger-icon span:nth-of-type(3){
+    background-color: darkgoldenrod;
+    transform: translateY(0) rotate(0);
+    transition: transform .4s;
+}
+
+.hamburger-icon.is-open span:nth-of-type(3){
+    background-color: darkgoldenrod;
+    transform: translateY(-11px) rotate(-225deg);
+}
+
+.g-nav{
+    background-color: blueviolet;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    transform: translateX(110%);
+    transition: transform .4s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.g-nav.is-open{
+    transform: translateX(45%);
+}
+
+.g-nav ul{
+    background-color: aquamarine;
+}
+
+.g-nav ul li{
+    background-color: blue;
+}
+
+.g-nav ul li a{
+    background-color: #568;
+}
+
+
+/*
+header{
+    background: #ddd;
+}
+
+.header-inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: aqua;
+    width: 90%;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.logo{
+    background-color: bisque;
+}
+
+.g-nav{
+    background-color: blueviolet;
+}
+
+.g-nav ul{
+    background-color: aquamarine;
+    display: flex;
+}
+*/

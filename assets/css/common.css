@@ -2,6 +2,7 @@
 
 body{
     line-height: 1.7;
+    height: 10000px;
 }
 
 a{
@@ -13,6 +14,13 @@ img{
     height: auto;
 }
 
+.page-wrapper{
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+    background-color: aquamarine;
+}
+
 /*
 *********************************************************************************************************
 *********************************************************************************************************
@@ -20,134 +28,249 @@ img{
 *********************************************************************************************************
 *********************************************************************************************************
 */
-header{
-    background: #ddd;
-    position: relative;
+
+.header{
+    background-color: antiquewhite;
+    width: 100%;
+    height: 60px;
 }
 
 .header-inner{
-    background-color: aqua;
+    background-color: aliceblue;
     display: flex;
-    justify-content: space-between;
-    max-width: 1280px;
-    width: 96%;
-    margin: 0 auto;
+    align-items: center;
+    height: 100%;
+    padding: 0 20px;
 }
 
-.logo{
+.header-logo{
     background-color: bisque;
+    margin: 0;
+    font-size: 24px;
 }
 
-.hamburger-icon{
-    background-color: brown;
-    width: 46px;
-    height: 46px;
+.hamburger-btn{
+    background-color: blue;
+    position: fixed;
+    top: 8px;
+    right: 15px;
+    z-index: 9999;
+    width: 44px;
+    height: 44px;
+    background-color: transparent;
     border: none;
     cursor: pointer;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 9px;
-}
-
-.hamburger-icon span{
-    background-color: cadetblue;
-    display: block;
-    width: 36px;
-    height: 2px;
-    margin: 0 auto;
-    background-color: #000;
-    border-radius: 9999px;
-}
-
-.hamburger-icon span:nth-of-type(1){
-    background-color: chartreuse;
-    transform: translateY(0) rotate(0);
-    transition: transform .4s;
-}
-
-.hamburger-icon.is-open span:nth-of-type(1){
-    background-color: chartreuse;
-    transform: translateY(11px) rotate(225deg);
-}
-
-.hamburger-icon span:nth-of-type(2){
-    background-color: chocolate;
-    opacity: 1;
-    transition: opacity .4s;
-}
-
-.hamburger-icon.is-open span:nth-of-type(2){
-    background-color: chocolate;
-    opacity: 0;
-}
-
-.hamburger-icon span:nth-of-type(3){
-    background-color: darkgoldenrod;
-    transform: translateY(0) rotate(0);
-    transition: transform .4s;
-}
-
-.hamburger-icon.is-open span:nth-of-type(3){
-    background-color: darkgoldenrod;
-    transform: translateY(-11px) rotate(-225deg);
-}
-
-.g-nav{
-    background-color: blueviolet;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    transform: translateX(110%);
-    transition: transform .4s;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.g-nav.is-open{
-    transform: translateX(45%);
-}
-
-.g-nav ul{
-    background-color: aquamarine;
-}
-
-.g-nav ul li{
     background-color: blue;
 }
 
-.g-nav ul li a{
-    background-color: #568;
+/*
+****************************************************************
+ハンバーガーアイコンの線（通常時）
+****************************************************************
+*/
+.hamburger-line{
+    display: block;
+    width: 30px;
+    height: 2px;
+    background-color: #fff;
+    margin: 9px auto;
+    transition:  transform .3s ease, opacity .3s ease;
 }
-
 
 /*
-header{
-    background: #ddd;
+****************************************************************
+ハンバーガーアイコンの線（開いたとき）
+****************************************************************
+*/
+.hamburger-btn.is-open .hamburger-line:nth-of-type(1){
+    transform: translateY(11px) rotate(225deg);
 }
 
-.header-inner{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: aqua;
-    width: 90%;
-    max-width: 1280px;
-    margin: 0 auto;
+.hamburger-btn.is-open .hamburger-line:nth-of-type(2){
+    opacity: 0;
 }
 
-.logo{
-    background-color: bisque;
+.hamburger-btn.is-open .hamburger-line:nth-of-type(3){
+    transform: translateY(-11px) rotate(-225deg);
 }
 
+/*
+****************************************************************
+グローバルナビゲーション（通常時）
+****************************************************************
+*/
 .g-nav{
     background-color: blueviolet;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 100;
+    transform: translateX(100%);
+    transition: transform .3s ease;
+}
+
+/*
+****************************************************************
+グローバルナビゲーション（開いたとき）
+****************************************************************
+*/
+.g-nav.is-open{
+    transform: translateX(30%);
 }
 
 .g-nav ul{
-    background-color: aquamarine;
-    display: flex;
+    background-color: brown;
+    margin-top: 60px;
 }
+
+.g-nav ul li{
+    background-color: aqua;
+    border-bottom: #999 solid 1px;
+}
+
+.g-nav ul li a{
+    background-color: antiquewhite;
+    display: inline-block;
+    width: 100%;
+    padding: 5px 0 5px 35px;
+    font-size: 1.1em;
+}
+
+@media screen and (min-width: 768px) {
+/*
+*********************************************************************************************************
+*********************************************************************************************************
+ヘッダー
+*********************************************************************************************************
+*********************************************************************************************************
 */
+
+.header{
+    background-color: antiquewhite;
+    width: 100%;
+    height: 60px;
+}
+
+.header-inner{
+    background-color: aliceblue;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 20px;
+}
+
+.header-logo{
+    background-color: bisque;
+    margin: 0;
+    font-size: 24px;
+}
+
+.hamburger-btn{
+    background-color: blue;
+    position: fixed;
+    top: 8px;
+    right: 15px;
+    z-index: 9999;
+    width: 44px;
+    height: 44px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    background-color: blue;
+        display: none;
+}
+
+/*
+****************************************************************
+ハンバーガーアイコンの線（通常時）
+****************************************************************
+*/
+.hamburger-line{
+    display: block;
+    width: 30px;
+    height: 2px;
+    background-color: #fff;
+    margin: 9px auto;
+    transition:  transform .3s ease, opacity .3s ease;
+}
+
+/*
+****************************************************************
+ハンバーガーアイコンの線（開いたとき）
+****************************************************************
+*/
+.hamburger-btn.is-open .hamburger-line:nth-of-type(1){
+    transform: translateY(11px) rotate(225deg);
+}
+
+.hamburger-btn.is-open .hamburger-line:nth-of-type(2){
+    opacity: 0;
+}
+
+.hamburger-btn.is-open .hamburger-line:nth-of-type(3){
+    transform: translateY(-11px) rotate(-225deg);
+}
+
+/*
+****************************************************************
+グローバルナビゲーション（通常時）
+****************************************************************
+*/
+.g-nav{
+    background-color: blueviolet;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 100;
+    transform: translateX(100%);
+    transform: translateX(30%);/*後で消す*/
+    transition: transform .3s ease;
+        position: static;
+        height: auto;
+        width: auto;
+        transform: none;
+        margin-left: auto;
+}
+
+/*
+****************************************************************
+グローバルナビゲーション（開いたとき）
+****************************************************************
+*/
+.g-nav.is-open{
+    transform: translateX(30%);
+        transform: none;
+}
+
+.g-nav ul{
+    background-color: brown;
+    margin-top: 60px;
+        display: flex;
+        gap: 30px;
+        margin: 0;
+        padding: 0;
+}
+
+.g-nav ul li{
+    background-color: aqua;
+    border-bottom: #999 solid 1px;
+        border-bottom: 0;
+}
+
+.g-nav ul li a{
+    background-color: antiquewhite;
+    display: inline-block;
+    width: 100%;
+    padding: 5px 0 5px 35px;
+    font-size: 1.1em;
+        display: block;
+        width: auto;
+        padding: 10px 0;
+}
+}
